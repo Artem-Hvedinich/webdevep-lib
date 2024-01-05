@@ -22,6 +22,3 @@ export const authentication = (credential: string, password: string): Promise<Lo
     password
 })
 
-export const isAuth = () => !!localStorage.getItem("accessToken")
-
-
