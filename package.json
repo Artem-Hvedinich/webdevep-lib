@@ -1,0 +1,19 @@
+{
+  "name": "webdevep-lib",
+  "version": "1.0.0",
+  "description": "authentication webdevep lib",
+  "private": false,
+  "author": "Artem Hved",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc -w"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^1.6.4",
+    "typescript": "^5.3.3"
+  }
+}
