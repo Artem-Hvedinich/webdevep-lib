@@ -8,16 +8,16 @@ export const instance = axios.create({
     },
 });
 export type LoginResponseType = {
-    data: {
-        accessToken?: string,
-        ok: boolean,
-        refreshToken?: string,
-        msg?: string,
-        code?: number
-    }
+    accessToken?: string,
+    ok: boolean,
+    refreshToken?: string,
+    msg?: string,
+    code?: number
 }
 
-export const authentication = (credential: string, password: string): Promise<LoginResponseType> => instance.post("login", {
+export const authentication = (credential: string, password: string): Promise<{
+    data: LoginResponseType
+}> => instance.post("login", {
     credential,
     password
 })
