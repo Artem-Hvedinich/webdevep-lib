@@ -31,6 +31,9 @@ router: это ваш vue-router
 
 ```loaderMiddleware(hide, show)```
 
+##### Example
+```loaderMiddleware(() => loaderStore.hideLoader(), () => loaderStore.showLoader())```
+
 **hide:** функция отрабатывает когда запрос выполнен
 
 **show:** функция отрабатывает когда запрос отправлен
