@@ -1,3 +1,4 @@
-export * from './src/api/index';
-export * from './src/auth/index';
-export * from './src/middleware/index';
+export * from './src/api/api';
+export * from './src/api/types';
+export * from './src/auth/auth';
+export * from './src/middleware/routerMiddleware';
