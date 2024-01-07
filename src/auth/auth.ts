@@ -40,7 +40,7 @@ export const loginOrRegister = async (
         emailConfirmCode,
         phoneConfirmCode,
         password
-    }: IncomingRegisterEmailOrPhone & { password: string }): Promise<LoginResponseDataType | { msg: string }> => {
+    }: IncomingRegisterEmailOrPhone & { password: string }): Promise<LoginResponseDataType> => {
     async function checkRegistrationMethod(password: string, phone?: string, email?: string,): Promise<LoginResponseDataType> {
         let data = {} as LoginResponseDataType
         if (phone) data = await login(phone, password)
@@ -49,7 +49,7 @@ export const loginOrRegister = async (
     }
 
     const data = await checkRegistrationMethod(password, phone, email)
-    if (!data.ok && data.msg === "Неверный пароль") return {msg: data.msg}
+    if (!data.ok && data.msg === "Неверный пароль") return {ok: false, msg: data.msg}
     if (!data.ok && data.msg === "Пользователь не найден") {
         let emailOrPhone: IncomingRegisterEmailOrPhone = {} as IncomingRegisterEmailOrPhone
         if (phone) {
@@ -65,7 +65,7 @@ export const loginOrRegister = async (
         await register({emailOrPhone, password, userinfo: {}})
         return await checkRegistrationMethod(password, phone, email)
     }
-    return {msg: "Неопределенная ошибка"}
+    return {ok: false, msg: "Неопределенная ошибка"}
 }
 
 export const getUserInfo = (accessToken: string): Promise<{ data: UserType }> => {
