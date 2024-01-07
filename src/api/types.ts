@@ -5,7 +5,7 @@ export type RegisterDataType = {
     phoneConfirmCode?: number,
     inn?: string,
     password: string,
-    usernfo: {},
+    userinfo: {},
     recapthcaToken?: string,
     roles?: string
 }
@@ -30,4 +30,19 @@ export type UserType = {
     inn: string,
     is_online: boolean,
     userinfo: any
+}
+export type IncomingLoginData = { credential: string, password: string }
+export type IncomingRegisterData = {
+    emailOrPhone: IncomingRegisterEmailOrPhone,
+    password: string,
+    userinfo: {},
+    inn?: string,
+    recapthcaToken?: string,
+    roles?: string
+}
+export type IncomingRegisterEmailOrPhone = {
+    email?: string,
+    emailConfirmCode?: number,
+    phone?: string,
+    phoneConfirmCode?: number,
 }
