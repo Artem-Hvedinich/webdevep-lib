@@ -49,8 +49,9 @@ export const loginOrRegister = async (
     }
 
     const data = await checkRegistrationMethod(password, phone, email)
-    if (!data.ok && data.msg === "Неверный пароль") return {ok: false, msg: data.msg}
-    if (!data.ok && data.msg === "Пользователь не найден") {
+    if (data.ok) return data
+    if (data.msg === "Неверный пароль") return {ok: false, msg: data.msg}
+    if (data.msg === "Пользователь не найден") {
         let emailOrPhone: IncomingRegisterEmailOrPhone = {} as IncomingRegisterEmailOrPhone
         if (phone) {
             emailOrPhone["phone"] = phone
