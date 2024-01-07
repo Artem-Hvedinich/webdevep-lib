@@ -26,6 +26,7 @@ router: это ваш vue-router
 
 **pathToTheAuthUserPage:** путь к странице если пользователь авторизован
 
+
 ### loaderMiddleware
 - Middleware для слежением за запросами внутри либы.
 
