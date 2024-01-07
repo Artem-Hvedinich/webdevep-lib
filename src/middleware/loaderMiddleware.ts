@@ -1,6 +1,6 @@
 import {instance} from "../api/api";
 
-export const loaderMiddleware = (hide: Function, show: Function) => {
+export const loaderMiddleware = (hide: () => boolean, show: () => boolean) => {
     instance.interceptors.response.use(response => {
         hide()
         return response
