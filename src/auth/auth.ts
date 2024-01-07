@@ -1,4 +1,5 @@
-import {API, LoginResponseDataType} from "../api";
+import {LoginResponseDataType} from "../api/types";
+import {API} from "../api/api";
 
 export const login = async (credential: string, password: string): Promise<LoginResponseDataType> => {
     const {data} = await API.login(credential, password)
